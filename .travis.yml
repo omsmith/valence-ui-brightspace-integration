@@ -1,11 +1,10 @@
 language: node_js
 node_js:
-- '0.11'
 - '0.10'
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
+- npm config set always-auth true
 - npm config set registry $NODEJITSU_REGISTRY
-- npm config set email $NODEJITSU_EMAIL
 - npm config set _auth $NODEJITSU_AUTH
 script:
 - gulp
@@ -17,5 +16,4 @@ env:
   - NODEJITSU_REGISTRY=https://d2l.registry.nodejitsu.com
   - secure: aLUQrHg9IYxLICp2VXsYGtPLGULHDcQKSh523ha1GxFGt6TQFYr5xr/aJnwyC0IDnQRKFFPGIf3VPCk8tSxB/rc5mjFPPJZxKwnAvKN/JY3uTeE4P/rakTa/d5wjDUdwKCDU+RxrupWRnnMkp92+pIDsHp6dTgoVJie17b9WeGQ=
   - secure: WMX0pV3aECnpsBEbxFuZVuZvUyewVDGcp36q2cZo2FtXPeOITIWB8zpF5WCykdITPHmJ8HW0JTN47/8TJBbZPXF6IrTwiJYgykEba3eweE/A9QlHwzfcdFaXYKs4IoLDCylIHJzh7hUBSTg0fXFxp9ZNSAeOACJEkoUGKVnVzXc=
-  - secure: VapEZUWSUEDyP9OvGnFKC5U08MmrRXfC1yBqZdAhNhEZZYqgddmMzBqNazsinabEPMBUhLcy1oS94AdfdfFSBAAHJEFiCXWxCG7CkXYgW+sn7+v/6pzqVj/J6szTNb2Iv1BZ3Bhf78ZcC4A3vNAEIeINbUNI53JC0L7zy20Myyg=
   - secure: PAxUI6pZ7NLejFOWaJUtwSa72y/icFHEaNmuY6k1AEOlcx7IMaePTKiG1xPmqis3L9B4+HylZ4bmDpwtcNoogoGvemvOcJdhent+YUEf8z7MF81uc4zAAhHfMPJkDwimHSkzURpIPKx6B4F7thurQk+6o8yzDftPji39WdUz9Ic=
