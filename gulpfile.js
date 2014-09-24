@@ -73,20 +73,11 @@ gulp.task( 'publish-s3', function() {
 
 gulp.task( 'update-github', function( cb ) {
 	
-	var githubUrl;
-	if( process.env.TRAVIS_PULL_REQUEST === 'false' ) {
-		githubUrl = 'https://api.github.com/repos/'
-			+ process.env.TRAVIS_REPO_SLUG
-			+ '/commits/'
-			+ process.env.COMMIT_SHA
-			+ '/comments';
-	} else {
-		githubUrl = 'https://api.github.com/repos/'
-			+ process.env.TRAVIS_REPO_SLUG
-			+ '/issues/'
-			+ process.env.TRAVIS_PULL_REQUEST
-			+ '/comments';
-	}
+	var githubUrl = 'https://api.github.com/repos/'
+		+ process.env.TRAVIS_REPO_SLUG
+		+ '/commits/'
+		+ process.env.COMMIT_SHA
+		+ '/comments';
 
 	var options = {
 		url: githubUrl,
@@ -102,14 +93,17 @@ gulp.task( 'update-github', function( cb ) {
 	request.post( options, function( error, response, body ) {
 		if( error ) {
 			gutil.log( gutil.colors.red( '[FAILED]', error ) );
+			cb( error );
 		} else if( response.statusCode != 201 ) {
 			gutil.log( gutil.colors.red(
 				'[FAILED]',
 				response.statusCode,
 				JSON.stringify(body)
 			) );
+			cb( response.statusCode );
+		} else {
+			cb();
 		}
-		cb();
 	});
 });
 
