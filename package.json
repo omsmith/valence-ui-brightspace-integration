@@ -1,0 +1,23 @@
+{
+  "name": "vui-brightspace-integration",
+  "version": "0.0.0",
+  "description": "Integrates VUI with Brightspace",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.dev.d2l:7999/val/brightspace-integration.git"
+  },
+  "private": true,
+  "author": "D2L Incorporated",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-concat": "^2.4.1",
+    "gulp-cssmin": "^0.1.6",
+    "gulp-jsmin": "^0.1.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-rimraf": "^0.1.0",
+    "vui-focus": "0.0.1",
+    "vui-link": "0.0.1",
+    "vui-button": "0.0.0"
+  }
+}
