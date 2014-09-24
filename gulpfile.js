@@ -3,7 +3,8 @@ var clean = require('gulp-rimraf'),
 	cssmin = require('gulp-cssmin'),
 	gulp = require('gulp'),
 	jsmin = require('gulp-jsmin'),
-	rename = require('gulp-rename');
+	rename = require('gulp-rename'),
+	s3 = require('gulp-s3');
 
 gulp.task( 'clean', function() {
 	return gulp.src('./dist')
@@ -55,6 +56,63 @@ gulp.task( 'javascript', function() {
 		.pipe( rename( { suffix: '.min' } ) )
 		.pipe( gulp.dest('./dist') );
 } );
+
+gulp.task( 'publish-s3', function() {
+	var aws = {
+		"key": "AKIAJHECRXPTMLRKXRVQ",
+		"secret": process.env.S3_SECRET,
+		"bucket": "vui-dev"
+	};
+	var options = {
+		// Need the trailing slash, otherwise the SHA is prepended to the filename.
+		uploadPath: process.env.COMMIT_SHA + '/'
+	};
+	return gulp.src('./dist/**')
+		.pipe( s3( aws, options ) );
+});
+
+gulp.task( 'update-github', function( cb ) {
+	
+	var githubUrl;
+	if( process.env.TRAVIS_PULL_REQUEST === 'false' ) {
+		githubUrl = 'https://api.github.com/repos/'
+			+ process.env.TRAVIS_REPO_SLUG
+			+ '/commits/'
+			+ process.env.COMMIT_SHA
+			+ '/comments';
+	} else {
+		githubUrl = 'https://api.github.com/repos/'
+			+ process.env.TRAVIS_REPO_SLUG
+			+ '/issues/'
+			+ process.env.TRAVIS_PULL_REQUEST
+			+ '/comments';
+	}
+
+	var options = {
+		url: githubUrl,
+		headers: {
+			'Authorization': 'token ' + process.env.GITHUB_TOKEN,
+			'User-Agent': 'dlockhart'
+		},
+		json: {
+			'body': '[Deployment available online](https://s3.amazonaws.com/vui-dev/' + process.env.COMMIT_SHA + '/valenceui.css)'
+		}
+	};
+
+	request.post( options, function( error, response, body ) {
+		if( error ) {
+			gutil.log( gutil.colors.red( '[FAILED]', error ) );
+		} else if( response.statusCode != 201 ) {
+			gutil.log( gutil.colors.red(
+				'[FAILED]',
+				response.statusCode,
+				JSON.stringify(body)
+			) );
+		}
+		cb();
+	});
+});
+
 
 gulp.task( 'default', [ 'clean' ], function() {
 	gulp.start( 'css' );

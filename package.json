@@ -16,8 +16,9 @@
     "gulp-jsmin": "^0.1.4",
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
+    "gulp-s3": "^0.3.0",
+    "vui-button": "0.0.0",
     "vui-focus": "0.0.1",
-    "vui-link": "0.0.1",
-    "vui-button": "0.0.0"
+    "vui-link": "0.0.1"
   }
 }
