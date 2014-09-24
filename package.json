@@ -1,6 +1,6 @@
 {
   "name": "vui-brightspace-integration",
-  "version": "0.0.0",
+  "version": "0.8.2",
   "description": "Integrates VUI with Brightspace",
   "repository": {
     "type": "git",
