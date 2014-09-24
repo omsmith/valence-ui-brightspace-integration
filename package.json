@@ -13,6 +13,7 @@
     "gulp": "^3.8.8",
     "gulp-concat": "^2.4.1",
     "gulp-cssmin": "^0.1.6",
+    "gulp-flatten": "0.0.3",
     "gulp-jsmin": "^0.1.4",
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
@@ -20,6 +21,7 @@
     "request": "^2.44.0",
     "vui-button": "0.0.0",
     "vui-focus": "0.0.1",
+    "vui-icons": "0.0.0",
     "vui-link": "0.0.1",
     "vui-typography": "0.0.0"
   }
