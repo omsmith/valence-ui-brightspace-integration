@@ -13,8 +13,22 @@ gulp.task( 'clean', function() {
 gulp.task( 'css', function() {
 	return gulp.src( [
 			'node_modules/vui-focus/dist/focus.css',
-			'node_modules/vui-link/dist/link.css',
-			'node_modules/vui-button/dist/button.css'
+			/* icons */
+			/* accordion */
+			/* breadcrumbs */
+			'node_modules/vui-button/dist/button.css',
+			/* change tracking */
+			/* checkbox/radio */
+			/* collapsible section */
+			/* field */
+			/* input attachments */
+			'node_modules/vui-link/dist/link.css'
+			/* list */
+			/* more/less */
+			/* select */
+			/* textarea */
+			/* textInput */
+			/* typography */
 		] )
 		.pipe( concat('valenceui.css') )
 		.pipe( gulp.dest('./dist') )
@@ -24,7 +38,17 @@ gulp.task( 'css', function() {
 } );
 
 gulp.task( 'javascript', function() {
-	return gulp.src( [] )
+	return gulp.src( [
+			/* accordion */
+			/* button */
+			/* change tracking */
+			/* collapsible section */
+			/* field */
+			/* link */
+			/* list */
+			/* more/less */
+			/* textarea */
+		] )
 		.pipe( concat('valenceui.js') )
 		.pipe( gulp.dest('./dist') )
 		.pipe( jsmin() )
