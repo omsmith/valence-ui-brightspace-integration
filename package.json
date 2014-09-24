@@ -19,6 +19,7 @@
     "gulp-s3": "^0.3.0",
     "vui-button": "0.0.0",
     "vui-focus": "0.0.1",
-    "vui-link": "0.0.1"
+    "vui-link": "0.0.1",
+    "vui-typography": "0.0.0"
   }
 }

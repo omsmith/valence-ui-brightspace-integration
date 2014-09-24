@@ -23,13 +23,13 @@ gulp.task( 'css', function() {
 			/* collapsible section */
 			/* field */
 			/* input attachments */
-			'node_modules/vui-link/dist/link.css'
+			'node_modules/vui-link/dist/link.css',
 			/* list */
 			/* more/less */
 			/* select */
 			/* textarea */
 			/* textInput */
-			/* typography */
+			'node_modules/vui-typography/dist/typography.css'
 		] )
 		.pipe( concat('valenceui.css') )
 		.pipe( gulp.dest('./dist') )
