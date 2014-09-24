@@ -4,6 +4,7 @@ var clean = require('gulp-rimraf'),
 	gulp = require('gulp'),
 	jsmin = require('gulp-jsmin'),
 	rename = require('gulp-rename'),
+	request = require('request'),
 	s3 = require('gulp-s3');
 
 gulp.task( 'clean', function() {
