@@ -19,7 +19,7 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-s3": "^0.3.0",
     "request": "^2.44.0",
-    "vui-button": "0.0.0",
+    "vui-button": "0.0.4",
     "vui-focus": "0.0.1",
     "vui-icons": "0.0.0",
     "vui-link": "0.0.1",

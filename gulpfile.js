@@ -32,6 +32,8 @@ gulp.task( 'css', function() {
 			/* textarea */
 			/* textInput */
 			'node_modules/vui-typography/dist/typography.css'
+			/* offscreen */
+			/* hidden */
 		] )
 		.pipe( concat('valenceui.css') )
 		.pipe( gulp.dest('./dist') )
