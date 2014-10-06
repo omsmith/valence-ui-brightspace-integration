@@ -4,7 +4,7 @@
   "description": "Integrates VUI with Brightspace",
   "repository": {
     "type": "git",
-    "url": "ssh://git@git.dev.d2l:7999/val/brightspace-integration.git"
+    "url": "https://github.com/Desire2Learn-Valence/valence-ui-brightspace-integration.git"
   },
   "private": true,
   "author": "D2L Incorporated",
