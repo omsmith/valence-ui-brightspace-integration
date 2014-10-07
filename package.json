@@ -24,5 +24,10 @@
     "vui-icons": "^0.0.3",
     "vui-link": "^0.0.4",
     "vui-typography": "0.0.2"
-  }
+  },
+  "keywords": [
+    "d2l",
+    "valence-ui",
+    "vui"
+  ]
 }
