@@ -7,7 +7,6 @@ before_install:
 - npm config set registry $NODEJITSU_REGISTRY
 - npm config set _auth $NODEJITSU_AUTH
 script:
-- gulp
 - ! '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && gulp publish-s3'
 after_success:
 - ! '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && gulp update-github'
