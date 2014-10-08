@@ -19,11 +19,15 @@
     "gulp-rimraf": "^0.1.0",
     "gulp-s3": "^0.3.0",
     "request": "^2.44.0",
-    "vui-button": "^0.0.5",
-    "vui-focus": "^0.0.5",
-    "vui-icons": "^0.0.3",
-    "vui-link": "^0.0.4",
-    "vui-typography": "0.0.2"
+    "vui-breadcrumbs": "^0.0.2",
+    "vui-button": "^0.0.8",
+    "vui-field": "^0.0.2",
+    "vui-focus": "^0.0.7",
+    "vui-gradient": "^0.0.3",
+    "vui-icons": "^0.0.5",
+    "vui-input": "^0.0.1",
+    "vui-link": "^0.0.6",
+    "vui-typography": "^0.0.3"
   },
   "keywords": [
     "d2l",
