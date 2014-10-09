@@ -69,13 +69,13 @@ gulp.task( 'icons', function() {
 
 gulp.task( 'publish-s3', function() {
 	var aws = {
-		"key": "AKIAJHECRXPTMLRKXRVQ",
+		"key": "AKIAI57KI4WTS3WMRZWQ",
 		"secret": process.env.S3_SECRET,
-		"bucket": "vui-dev"
+		"bucket": "d2lprodcdn"
 	};
 	var options = {
 		// Need the trailing slash, otherwise the SHA is prepended to the filename.
-		uploadPath: process.env.COMMIT_SHA + '/'
+		uploadPath: 'lib/vui/' process.env.COMMIT_SHA + '/'
 	};
 	return gulp.src('./dist/**')
 		.pipe( s3( aws, options ) );
