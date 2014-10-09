@@ -17,3 +17,4 @@ deploy:
   local-dir: dist
   upload-dir: lib/vui/$TRAVIS_TAG
   acl: public_read
+  skip_cleanup: true
