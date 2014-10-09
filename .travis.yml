@@ -12,7 +12,7 @@ deploy:
   provider: s3
   access_key_id: AKIAI57KI4WTS3WMRZWQ
   secret_access_key:
-    secure: QfJyNbz3Rb4aHFI4lOmakMELcP9rP72+jUmkQ5K3nQnBfAC5nT0/md9/amPCYlw50VmsNcfeG04EqhcStGAaRDUeEhM84x7gW/CGRfgEpOYyYge2bTb1FHOVqxaKn0rHpChv+ZpwaxlHQfLA4Z/FbQjRPSN3OdUfPqIKg+aeiWY=
+    secure: b6YQy6CMKwVgBbLjlQyOKGcENPi1xw8iMZoUasu18dAxtTe47kBPAyiy6fDaHZJ69sABHgGx7Nhh4yMeseGoAUn2MWny2FtxC2uu2bfNz7RC7YNvcYytPvu4sztSXIPGqpGFLBq0qjod3F7Pja4BI43kQbx2yVdthPrqBFdAGi4=
   bucket: d2lprodcdn
   local-dir: dist
   upload-dir: lib/vui/$TRAVIS_TAG
