@@ -4,9 +4,16 @@ node_js:
 before_install:
 - export COMMIT_SHA=`git log -1 --pretty=format:%H`
 after_success:
-- ! '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && gulp publish-s3'
-- ! '[ "$TRAVIS_SECURE_ENV_VARS" = "true" ] && gulp update-github'
 env:
   global:
   - secure: aLUQrHg9IYxLICp2VXsYGtPLGULHDcQKSh523ha1GxFGt6TQFYr5xr/aJnwyC0IDnQRKFFPGIf3VPCk8tSxB/rc5mjFPPJZxKwnAvKN/JY3uTeE4P/rakTa/d5wjDUdwKCDU+RxrupWRnnMkp92+pIDsHp6dTgoVJie17b9WeGQ=
   - secure: WMX0pV3aECnpsBEbxFuZVuZvUyewVDGcp36q2cZo2FtXPeOITIWB8zpF5WCykdITPHmJ8HW0JTN47/8TJBbZPXF6IrTwiJYgykEba3eweE/A9QlHwzfcdFaXYKs4IoLDCylIHJzh7hUBSTg0fXFxp9ZNSAeOACJEkoUGKVnVzXc=
+deploy:
+  provider: s3
+  access_key_id: AKIAI57KI4WTS3WMRZWQ
+  secret_access_key:
+    secure: QfJyNbz3Rb4aHFI4lOmakMELcP9rP72+jUmkQ5K3nQnBfAC5nT0/md9/amPCYlw50VmsNcfeG04EqhcStGAaRDUeEhM84x7gW/CGRfgEpOYyYge2bTb1FHOVqxaKn0rHpChv+ZpwaxlHQfLA4Z/FbQjRPSN3OdUfPqIKg+aeiWY=
+  bucket: d2lprodcdn
+  local-dir: dist
+  upload-dir: lib/vui/$TRAVIS_TAG
+  acl: public_read
