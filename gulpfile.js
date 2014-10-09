@@ -75,7 +75,7 @@ gulp.task( 'publish-s3', function() {
 	};
 	var options = {
 		// Need the trailing slash, otherwise the SHA is prepended to the filename.
-		uploadPath: 'lib/vui/' process.env.COMMIT_SHA + '/'
+		uploadPath: 'lib/vui/' + process.env.COMMIT_SHA + '/'
 	};
 	return gulp.src('./dist/**')
 		.pipe( s3( aws, options ) );
