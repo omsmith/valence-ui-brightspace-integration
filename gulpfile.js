@@ -15,23 +15,23 @@ gulp.task( 'clean', function() {
 
 gulp.task( 'css', function() {
 	return gulp.src( [
-			'node_modules/vui-focus/dist/focus.css',
-			'node_modules/vui-icons/dist/icons.css',
+			'node_modules/vui-focus/focus.css',
+			'node_modules/vui-icons/icons.css',
 			/* accordion */
 			/* breadcrumbs */
-			'node_modules/vui-button/dist/button.css',
+			'node_modules/vui-button/button.css',
 			/* change tracking */
 			/* checkbox/radio */
 			/* collapsible section */
 			/* field */
 			/* input attachments */
-			'node_modules/vui-link/dist/link.css',
+			'node_modules/vui-link/link.css',
 			/* list */
 			/* more/less */
 			/* select */
 			/* textarea */
 			/* textInput */
-			'node_modules/vui-typography/dist/typography.css'
+			'node_modules/vui-typography/typography.css'
 			/* offscreen */
 			/* hidden */
 		] )
@@ -61,15 +61,8 @@ gulp.task( 'javascript', function() {
 		.pipe( gulp.dest('./dist') );
 } );
 
-gulp.task( 'miscfiles', function() {
-	return gulp.src( [
-			'node_modules/vui-icons/dist/icons.json'
-		])
-	.pipe( gulp.dest('./dist') )
-} );
-
 gulp.task( 'icons', function() {
-	return gulp.src( [ 'node_modules/vui-icons/dist/**/*.png' ] )
+	return gulp.src( [ 'node_modules/vui-icons/images/**/*.png' ] )
 		.pipe( flatten() )
 		.pipe( gulp.dest('./dist/images') );
 } );
@@ -126,5 +119,5 @@ gulp.task( 'update-github', function( cb ) {
 
 
 gulp.task( 'default', [ 'clean' ], function() {
-	gulp.start( 'css', 'miscfiles', 'icons' );
+	gulp.start( 'css', 'icons' );
 } );
