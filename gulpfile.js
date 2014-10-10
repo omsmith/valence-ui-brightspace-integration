@@ -35,12 +35,12 @@ gulp.task( 'css', function() {
 			'node_modules/vui-focus/focus.css',
 			'node_modules/vui-icons/icons.css',
 			/* accordion */
-			/* breadcrumbs */
+			'node_modules/vui-breadcrumbs/breadcrumbs.css',
 			'node_modules/vui-button/button.css',
 			/* change tracking */
 			/* checkbox/radio */
 			/* collapsible section */
-			/* field */
+			'node_modules/vui-field/field.css',
 			/* input attachments */
 			'node_modules/vui-link/link.css',
 			/* list */
