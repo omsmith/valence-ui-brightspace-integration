@@ -100,7 +100,10 @@ gulp.task( 'publish-s3', function() {
 		};
 
 	var options = {
-			uploadPath: location
+			uploadPath: location,
+			headers: {
+				'cache-control': 'public, max-age=31536000'
+			}
 		};
 
 	gutil.log( 'Publishing to \'' + location + '\'...' );
