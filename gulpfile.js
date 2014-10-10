@@ -40,7 +40,7 @@ gulp.task( 'css', function() {
 			/* change tracking */
 			/* checkbox/radio */
 			/* collapsible section */
-			/* field */
+			'node_modules/vui-field/field.css',
 			/* input attachments */
 			'node_modules/vui-link/link.css',
 			/* list */
