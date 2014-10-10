@@ -1,6 +1,6 @@
-var clean = require('gulp-rimraf'),
-	concat = require('gulp-concat'),
+var concat = require('gulp-concat'),
 	cssmin = require('gulp-cssmin'),
+	del = require('del'),
 	flatten = require('gulp-flatten'),
 	gulp = require('gulp'),
 	gutil = require('gutil'),
@@ -26,9 +26,8 @@ function tryGetDeployLocation() {
 
 }
 
-gulp.task( 'clean', function() {
-	return gulp.src('./dist')
-		.pipe( clean() );
+gulp.task( 'clean', function( cb ) {
+	del( ['dist'], cb );
 } );
 
 gulp.task( 'css', function() {
