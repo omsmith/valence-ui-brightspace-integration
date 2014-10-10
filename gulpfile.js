@@ -3,10 +3,28 @@ var clean = require('gulp-rimraf'),
 	cssmin = require('gulp-cssmin'),
 	flatten = require('gulp-flatten'),
 	gulp = require('gulp'),
+	gutil = require('gutil'),
 	jsmin = require('gulp-jsmin'),
 	rename = require('gulp-rename'),
 	request = require('request'),
 	s3 = require('gulp-s3');
+
+function tryGetDeployLocation() {
+
+	var sha = process.env.COMMIT_SHA;
+	var tag = process.env.TRAVIS_TAG;
+	if( !sha && !tag ) {
+		gutil.log( 'Unable to access COMMIT_SHA or TRAVIS_TAG.' );
+		return null;
+	}
+
+	var version = ( tag && tag.length > 0 ) ? tag : sha;
+
+	// Need the trailing slash, otherwise the version is prepended to the filename.
+	var location = 'lib/vui/' + version + '/';
+	return location;
+
+}
 
 gulp.task( 'clean', function() {
 	return gulp.src('./dist')
@@ -68,20 +86,38 @@ gulp.task( 'icons', function() {
 } );
 
 gulp.task( 'publish-s3', function() {
+
+	var location = tryGetDeployLocation();
+	if( location === null ) {
+		gutil.log( 'Skipping publish.' );
+		return;
+	}
+
 	var aws = {
-		"key": "AKIAI57KI4WTS3WMRZWQ",
-		"secret": process.env.S3_SECRET,
-		"bucket": "d2lprodcdn"
-	};
+			"key": "AKIAI57KI4WTS3WMRZWQ",
+			"secret": process.env.S3_SECRET,
+			"bucket": "d2lprodcdn"
+		};
+
 	var options = {
-		// Need the trailing slash, otherwise the SHA is prepended to the filename.
-		uploadPath: 'lib/vui/' + process.env.COMMIT_SHA + '/'
-	};
+			uploadPath: location
+		};
+
+	gutil.log( 'Publishing to \'' + location + '\'...' );
+
 	return gulp.src('./dist/**')
 		.pipe( s3( aws, options ) );
+
 });
 
 gulp.task( 'update-github', function( cb ) {
+
+	var location = tryGetDeployLocation();
+	if( location === null ) {
+		gutil.log( 'Skipping update-github.' );
+		cb();
+		return;
+	}
 	
 	var githubUrl = 'https://api.github.com/repos/'
 		+ process.env.TRAVIS_REPO_SLUG
@@ -90,15 +126,15 @@ gulp.task( 'update-github', function( cb ) {
 		+ '/comments';
 
 	var options = {
-		url: githubUrl,
-		headers: {
-			'Authorization': 'token ' + process.env.GITHUB_TOKEN,
-			'User-Agent': 'dlockhart'
-		},
-		json: {
-			'body': '[Deployment available online](https://s3.amazonaws.com/vui-dev/' + process.env.COMMIT_SHA + '/valenceui.css)'
-		}
-	};
+			url: githubUrl,
+			headers: {
+				'Authorization': 'token ' + process.env.GITHUB_TOKEN,
+				'User-Agent': 'dlockhart'
+			},
+			json: {
+				'body': '[Deployment available online](https://s3.amazonaws.com/' + location + 'valenceui.css)'
+			}
+		};
 
 	request.post( options, function( error, response, body ) {
 		if( error ) {

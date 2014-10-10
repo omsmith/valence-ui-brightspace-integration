@@ -9,7 +9,7 @@
   "private": true,
   "author": "D2L Corporation",
   "license": "Apache-2.0",
-   "scripts": {
+  "scripts": {
     "test": "gulp"
   },
   "devDependencies": {
@@ -21,6 +21,7 @@
     "gulp-rename": "^1.2.0",
     "gulp-rimraf": "^0.1.0",
     "gulp-s3": "^0.3.0",
+    "gutil": "^1.5.5",
     "request": "^2.44.0",
     "vui-breadcrumbs": "^0.0.2",
     "vui-button": "^0.0.8",
