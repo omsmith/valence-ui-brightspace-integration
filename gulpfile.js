@@ -38,16 +38,12 @@ gulp.task( 'css', function() {
 			'node_modules/vui-breadcrumbs/breadcrumbs.css',
 			'node_modules/vui-button/button.css',
 			/* change tracking */
-			/* checkbox/radio */
 			/* collapsible section */
 			'node_modules/vui-field/field.css',
-			/* input attachments */
 			'node_modules/vui-link/link.css',
 			/* list */
 			/* more/less */
-			/* select */
-			/* textarea */
-			/* textInput */
+			'node_modules/vui-input/input.css',
 			'node_modules/vui-typography/typography.css'
 			/* offscreen */
 			/* hidden */
