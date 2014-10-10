@@ -132,7 +132,7 @@ gulp.task( 'update-github', function( cb ) {
 				'User-Agent': 'dlockhart'
 			},
 			json: {
-				'body': '[Deployment available online](https://s3.amazonaws.com/' + location + 'valenceui.css)'
+				'body': '[Deployment available online](https://d2660orkic02xl.cloudfront.net/' + location + 'valenceui.css)'
 			}
 		};
 
