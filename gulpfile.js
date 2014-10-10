@@ -18,7 +18,7 @@ function tryGetDeployLocation() {
 		return null;
 	}
 
-	var version = ( tag && tag.length > 0 ) ? tag : sha;
+	var version = ( tag && tag.length > 0 ) ? tag : 'dev/' + sha;
 
 	// Need the trailing slash, otherwise the version is prepended to the filename.
 	var location = 'lib/vui/' + version + '/';
